@@ -1,10 +1,15 @@
 FROM debian:buster
 
 # Install pygments (for syntax highlighting) 
+# Install nodejs and npm
 RUN apt-get -qq update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends libstdc++6 python-pygments git ca-certificates asciidoc curl \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends libstdc++6 python-pygments git ca-certificates asciidoc curl nodejs npm \
 	&& rm -rf /var/lib/apt/lists/*
 
+# Install npm packages postcss-cli and autoprefixer
+RUN npm install -g postcss-cli \
+    && npm install -g autoprefixer
+    
 # Configuration variables
 ENV HUGO_VERSION 0.69.2
 ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-64bit.deb
