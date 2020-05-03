@@ -1,9 +1,17 @@
-monachus/hugo
+tubia/hugo
 ==============
 
-`monachus/hugo` is a [Docker](https://www.docker.io) base image for static sites generated with [Hugo](http://gohugo.io).  
+`tubia/hugo` is a [Docker](https://www.docker.io) base image for static sites generated with [Hugo](http://gohugo.io).  
 
-This image is uses the `extended` release of Hugo, which contains support for Sass/SCSS.
+This image is based on the image created by monachus, which you can find [here](https://hub.docker.com/r/monachus/hugo) and that uses the `extended` release of Hugo, which contains support for Sass/SCSS.
+
+**What is inside:**
+- support for postcss and autoprefixer out-of-the-box
+- `node` and `npm` already there so you can just add your node package 
+
+**In this way, you can take full advantage of the new Hugo pipes implementation in your building pipeline.**
+
+> ! This is the description from the original image by monachus which I left untouched
 
 Images derived from this image can either run as a stand-alone server, or function as a volume image for your web server.  You can also use them in a CI/CD system such as Gitlab CI to build your content prior to bundling it into a standalone webserver container such as `httpd:alpine`.
 
